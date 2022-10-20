@@ -14,12 +14,15 @@ import { UncontrolledDropdown, DropdownMenu, DropdownToggle, DropdownItem } from
 import defaultAvatar from '@src/assets/images/portrait/small/avatar-s-11.jpg'
 
 const UserDropdown = () => {
+
+  const usersData = JSON.parse(localStorage.getItem('userData'))
+  
   return (
     <UncontrolledDropdown tag='li' className='dropdown-user nav-item'>
       <DropdownToggle href='/' tag='a' className='nav-link dropdown-user-link' onClick={e => e.preventDefault()}>
         <div className='user-nav d-sm-flex d-none'>
-          <span className='user-name fw-bold'>Frédéric Ignace</span>
-          <span className='user-status'>Administrateur</span>
+          <span className='user-name fw-bold'>{usersData.firstname}</span>
+          <span className='user-status'>{usersData.email}</span>
         </div>
         <Avatar img={defaultAvatar} imgHeight='40' imgWidth='40' status='online' />
       </DropdownToggle>
